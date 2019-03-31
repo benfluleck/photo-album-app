@@ -6,7 +6,7 @@ Text example:
   <Text
     fontSize="md"
     fontWeight="semiBold"
-    uppercase={true}>
-    This text is converted to uppercase
+    >
+    This text is bolder
   </Text>
 ```

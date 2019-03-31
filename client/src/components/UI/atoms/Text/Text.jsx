@@ -16,7 +16,6 @@ const Text = ({
   textAlign,
   color,
   display,
-  uppercase,
   fontWeight,
   children,
   padding
@@ -26,13 +25,31 @@ const Text = ({
     textAlign={textAlign}
     color={color}
     display={display}
-    uppercase={uppercase}
     fontWeight={fontWeight}
     padding={padding}
   >
     {children}
   </Text.Container>
 )
+
+Text.Container = styled.span`
+    ${({ padding,
+    fontSize: userFontSize,
+    fontWeight: userFontWeight,
+    display,
+    textAlign,
+    theme: { spacing, fontSize, fontWeight } }) => `
+    text-align: ${textAlign};
+    display: ${display};
+    padding: ${spacing[padding] || '0'};
+    font-size: ${fontSize[userFontSize]};
+    font-weight: ${fontWeight[userFontWeight]};
+`}`
+
+Text.defaultProps = {
+  display: 'inline',
+  fontWeight: 'normal'
+}
 
 Text.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
@@ -41,23 +58,8 @@ Text.propTypes = {
   color: PropTypes.oneOf(Object.keys(textColors)),
   fontSize: PropTypes.oneOf(Object.keys(fontSize)),
   textAlign: PropTypes.oneOf(['left', 'center', 'right', 'justify']),
-  uppercase: PropTypes.bool,
   fontWeight: PropTypes.oneOf(Object.keys(fontWeight)),
   padding: PropTypes.oneOf(Object.keys(spacing))
 }
 
-Text.defaultProps = {
-  display: 'inline',
-  uppercase: false,
-  fontWeight: 'normal'
-}
-
-Text.Container = styled.span`
-  text-align: ${props => props.textAlign};
-  font-size: ${props => props.theme.fontSize[props.fontSize]};
-  display: ${props => props.display};
-  padding: ${props => props.theme.spacing[props.padding] || '0'};
-  font-weight: ${props => props.theme.fontWeight[props.fontWeight]};
-  ${props => props.uppercase && 'text-transform: uppercase'};
-`
 export default Text
