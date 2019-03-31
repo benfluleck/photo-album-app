@@ -1,13 +1,15 @@
 {
-  "name": "andela-cohort-react-app",
+  "name": "photo-album-app",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/benfluleck/andela-cohort-react-app.git",
+  "repository": "https://github.com/benfluleck/photo-album-app.git",
   "author": "Benny Ogidan <benny.ogidan@andela.com>",
   "license": "MIT",
   "scripts": {
     "lint": "eslint '**/*js'",
     "lint:fix": "prettier-eslint '**/*js' --write",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build",
     "client:dev": "rm -rf client/dist && webpack-dev-server --env.mode development --open --hot"
   },
   "husky": {
@@ -48,6 +50,8 @@
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
+    "react-router-dom": "^5.0.0",
+    "react-styleguidist": "^9.0.5",
     "style-loader": "^0.23.1",
     "styled-components": "^4.1.3",
     "uglifyjs-webpack-plugin": "^2.1.1",
