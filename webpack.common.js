@@ -14,9 +14,11 @@ module.exports = {
       '<atoms>': path.resolve(__dirname, 'client/src/components/UI/atoms'),
       '<molecules>': path.resolve(__dirname, 'client/src/components/UI/molecules'),
       '<organisms>': path.resolve(__dirname, 'client/src/components/UI/organisms'),
+      '<pages>': path.resolve(__dirname, 'client/src/components/pages'),
       '<styles>': path.resolve(__dirname, 'client/src/styles'),
       '<core>': path.resolve(__dirname, 'client/src/core'),
-      '<helpers>': path.resolve(__dirname, 'client/src/helpers')
+      '<helpers>': path.resolve(__dirname, 'client/src/helpers'),
+      '<variables>': path.resolve(__dirname, 'client/src/styles/variables')
     }
   },
   plugins: [
