@@ -15,11 +15,12 @@ const Title = ({
 )
 
 Title.Container = styled.span`
-  ${({ fontSize: userFontSize, theme: { fontSize } }) => `
+  ${({ fontSize: userFontSize, theme: { spacing, fontSize } }) => `
   text-align: left;
   font-size: ${fontSize[userFontSize]};
   font-weight: bold;
   display: inline;
+  padding-bottom: ${spacing.base};
 `}`
 
 Title.defaultProps = {

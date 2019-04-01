@@ -4,7 +4,6 @@ import styled from 'styled-components'
 
 import { fontWeight, fontSize } from '<styles>/variables/fonts'
 import { textColors } from '<styles>/variables/colorPalette'
-import { spacing } from '<styles>/variables/spacing'
 
 /**
  * @description - Text Component
@@ -51,7 +50,9 @@ Text.Container = styled.span`
 Text.defaultProps = {
   display: 'inline',
   fontWeight: 'normal',
-  textAlign: 'left'
+  textAlign: 'left',
+  fontSize: 'sm',
+  color: 'black'
 }
 
 Text.propTypes = {
@@ -62,7 +63,7 @@ Text.propTypes = {
   fontSize: PropTypes.oneOf(Object.keys(fontSize)),
   textAlign: PropTypes.oneOf(['left', 'center', 'right', 'justify']),
   fontWeight: PropTypes.oneOf(Object.keys(fontWeight)),
-  padding: PropTypes.string,
+  padding: PropTypes.string
 }
 
 export default Text

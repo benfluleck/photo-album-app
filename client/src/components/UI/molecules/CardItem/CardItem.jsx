@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Text from '<atoms>/Text/Text'
 
 const CardItem = ({ cardItem, itemValue }) => (
-  <Text fontSize="sm" color="grey" padding="1rem 0">
+  <Text fontSize="sm" color="grey" padding="0.4rem 0">
     {`${cardItem}: ${itemValue}`}
   </Text>
 )
