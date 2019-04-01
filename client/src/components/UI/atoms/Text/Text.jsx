@@ -38,17 +38,20 @@ Text.Container = styled.span`
     fontWeight: userFontWeight,
     display,
     textAlign,
-    theme: { spacing, fontSize, fontWeight } }) => `
+    color,
+    theme: { fontSize, fontWeight, textColors } }) => `
     text-align: ${textAlign};
+    color: ${textColors[color]};
     display: ${display};
-    padding: ${spacing[padding] || '0'};
+    padding: ${padding || '0'};
     font-size: ${fontSize[userFontSize]};
     font-weight: ${fontWeight[userFontWeight]};
 `}`
 
 Text.defaultProps = {
   display: 'inline',
-  fontWeight: 'normal'
+  fontWeight: 'normal',
+  textAlign: 'left'
 }
 
 Text.propTypes = {
@@ -59,7 +62,7 @@ Text.propTypes = {
   fontSize: PropTypes.oneOf(Object.keys(fontSize)),
   textAlign: PropTypes.oneOf(['left', 'center', 'right', 'justify']),
   fontWeight: PropTypes.oneOf(Object.keys(fontWeight)),
-  padding: PropTypes.oneOf(Object.keys(spacing))
+  padding: PropTypes.string,
 }
 
 export default Text

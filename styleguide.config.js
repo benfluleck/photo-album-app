@@ -5,11 +5,11 @@ module.exports = {
     {
       name: 'Atoms',
       components: 'client/src/components/UI/atoms/**/[A-Z]*.jsx'
+    },
+    {
+      name: 'Molecules',
+      components: 'client/src/components/UI/molecules/**/[A-Z]*.jsx'
     }
-    // {
-    //   name: 'Molecules',
-    //   components: 'client/src/components/UI/molecules/**/[A-Z]*.jsx'
-    // },
     // {
     //   name: 'Organisms',
     //   components: 'client/src/components/UI/organisms/**/[A-Z]*.jsx'
