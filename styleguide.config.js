@@ -9,11 +9,11 @@ module.exports = {
     {
       name: 'Molecules',
       components: 'client/src/components/UI/molecules/**/[A-Z]*.jsx'
+    },
+    {
+      name: 'Organisms',
+      components: 'client/src/components/UI/organisms/**/[A-Z]*.jsx'
     }
-    // {
-    //   name: 'Organisms',
-    //   components: 'client/src/components/UI/organisms/**/[A-Z]*.jsx'
-    // }
   ],
   styleguideComponents: {
     Wrapper: path.join(

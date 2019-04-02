@@ -25,8 +25,7 @@ const Text = ({
     color={color}
     display={display}
     fontWeight={fontWeight}
-    padding={padding}
-  >
+    padding={padding}>
     {children}
   </Text.Container>
 )
