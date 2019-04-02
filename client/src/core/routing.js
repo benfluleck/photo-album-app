@@ -1,11 +1,11 @@
-import HomePage from '<pages>/Homepage'
+import AlbumPage from '<pages>/AlbumPage'
 
 const routes = {
   default: [
     {
       exact: true,
       path: '/',
-      component: HomePage
+      component: AlbumPage
     }
   ]
 }
