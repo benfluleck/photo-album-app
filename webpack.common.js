@@ -14,6 +14,7 @@ module.exports = {
       '<atoms>': path.resolve(__dirname, 'client/src/components/UI/atoms'),
       '<molecules>': path.resolve(__dirname, 'client/src/components/UI/molecules'),
       '<organisms>': path.resolve(__dirname, 'client/src/components/UI/organisms'),
+      '<templates>': path.resolve(__dirname, 'client/src/components/UI/templates'),
       '<pages>': path.resolve(__dirname, 'client/src/components/pages'),
       '<styles>': path.resolve(__dirname, 'client/src/styles'),
       '<core>': path.resolve(__dirname, 'client/src/core'),
