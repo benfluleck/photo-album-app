@@ -1,5 +1,6 @@
 export const spacing = {
   negativexs: '-0.4rem',
+  xxxs: '0.07rem',
   xxs: '.2rem',
   xs: '.4rem',
   base: '.8rem',
@@ -14,5 +15,7 @@ export const spacing = {
   xl: '6.4rem',
   xlPlusBase: '7.2rem',
   xxxl: '8.8rem',
-  cards: '15rem'
+  cards: '15rem',
+  photos: '25rem',
+  maxWidth: '100%'
 }

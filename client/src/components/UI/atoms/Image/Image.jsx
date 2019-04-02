@@ -9,13 +9,7 @@ const Image = ({ imageUrl, altTitle, width }) => <Image.Container src={imageUrl}
 Image.Container = styled.img`
   width: ${props => props.theme.spacing[props.width] || '100%'};
   border-radius: 0.25rem 0.25rem 0 0;
-  cursor: pointer;
-  filter: grayscale(0);
-  transition: .3s ease-in-out;
-  &:hover {
-    filter: grayscale(100%);
-  }
-`
+  `
 
 Image.propTypes = {
   imageUrl: PropTypes.string.isRequired,

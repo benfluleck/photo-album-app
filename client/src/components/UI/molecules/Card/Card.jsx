@@ -49,9 +49,9 @@ Card.Content = styled.div`
 `
 
 Card.propTypes = {
-  imageUrl: PropTypes.string,
+  imageUrl: PropTypes.string.isRequired,
   imageTitle: PropTypes.string,
-  cardTitle: PropTypes.string,
+  cardTitle: PropTypes.string.isRequired,
   cardTitleValue: PropTypes.string,
   itemTitle: PropTypes.string,
   itemValue: PropTypes.string
