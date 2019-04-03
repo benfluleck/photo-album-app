@@ -19,7 +19,9 @@ module.exports = {
       '<styles>': path.resolve(__dirname, 'client/src/styles'),
       '<core>': path.resolve(__dirname, 'client/src/core'),
       '<helpers>': path.resolve(__dirname, 'client/src/helpers'),
-      '<variables>': path.resolve(__dirname, 'client/src/styles/variables')
+      '<state>': path.resolve(__dirname, 'client/src/state'),
+      '<variables>': path.resolve(__dirname, 'client/src/styles/variables'),
+      '<api>': path.resolve(__dirname, 'client/src/api')
     }
   },
   plugins: [
