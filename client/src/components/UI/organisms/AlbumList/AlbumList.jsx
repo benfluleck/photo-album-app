@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import Card from '<molecules>/Card/Card'
 
-function AlbumList ({ albums }) {
+function AlbumList ({ albums, username }) {
   return (
     <AlbumList.Container>
       {renderAlbums(albums)}
@@ -13,13 +13,13 @@ function AlbumList ({ albums }) {
 
   function renderAlbums (albums) {
     return albums.map((album, index) => (<Card
-      key={`${index}+${album.id}`}
+      key={`${index}+${album.imageUrl}`}
       imageUrl={album.imageUrl}
       imageTitle={album.title}
       cardTitle="Album Title"
       cardTitleValue={album.title}
       itemTitle="Username"
-      itemValue={album.userId}
+      itemValue={username}
     />))
   }
 }
@@ -29,10 +29,10 @@ AlbumList.propTypes = {
     PropTypes.shape({
       title: PropTypes.string,
       userId: PropTypes.string,
-      imageUrl: PropTypes.string,
-      id: PropTypes.string
+      imageUrl: PropTypes.string
     })
-  )
+  ),
+  username: PropTypes.string
 }
 
 AlbumList.Container = styled.div`

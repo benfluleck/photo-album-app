@@ -36,7 +36,7 @@ PageTemplate.Container = styled.div`
 
 PageTemplate.NavBar = styled.div`
   ${({ theme: { spacing, textColors } }) => `
-  background-color: ${textColors.orange};
+  background-color: ${textColors.navbar};
   grid-area: nav;
   padding: ${spacing.smPlusBasePlusxs} ${spacing.basePlusXs};
   display: flex;
@@ -54,7 +54,7 @@ PageTemplate.Footer = styled(PageTemplate.NavBar)`
 
 PageTemplate.TitleContainer = styled.div`
   grid-area: title;
-  border-bottom: 0.1rem solid  ${props => props.theme.textColors.orange};
+  border-bottom: 0.1rem solid  ${props => props.theme.textColors.navbar};
   padding-left: ${props => props.theme.spacing.mdPlusBase};
 `
 

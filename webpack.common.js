@@ -21,7 +21,8 @@ module.exports = {
       '<helpers>': path.resolve(__dirname, 'client/src/helpers'),
       '<state>': path.resolve(__dirname, 'client/src/state'),
       '<variables>': path.resolve(__dirname, 'client/src/styles/variables'),
-      '<api>': path.resolve(__dirname, 'client/src/api')
+      '<api>': path.resolve(__dirname, 'client/src/api'),
+      '<constants>': path.resolve(__dirname, 'client/src/constants')
     }
   },
   plugins: [
