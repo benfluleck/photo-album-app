@@ -10,8 +10,8 @@ const CardItem = ({ cardItem, itemValue }) => (
 )
 
 CardItem.propTypes = {
-  cardItem: PropTypes.string.isRequired,
-  itemValue: PropTypes.string.isRequired
+  cardItem: PropTypes.string,
+  itemValue: PropTypes.string
 }
 
 export default CardItem

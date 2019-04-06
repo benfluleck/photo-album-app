@@ -1,29 +1,19 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
+import withPageTemplate from '../hoc/withPageTemplate'
 import AlbumList from '<organisms>/AlbumList/AlbumList'
-import PageTemplate from '<templates>/PageTemplate'
-import { UsersContext } from '<state>/GlobalContext'
-import useAlbum from '<state>/Album/useAlbum'
-import { getUsers, generateAlbumData } from '<helpers>/utils'
+import { generateAlbumData } from '<helpers>/utils'
 
-function AlbumPage ({ albumTitle = 'Album Title' }) {
-  const allUsers = useContext(UsersContext)
-  const users = getUsers(allUsers)
-  const { albums } = useAlbum()
-
-  const results = generateAlbumData(albums, users)
-  return (
-    <PageTemplate pageTitle={albumTitle}>
-      <AlbumList
-        albums={results.data}
-        username={results.username}
-      />
-    </PageTemplate>)
-}
+const AlbumPage = props => <AlbumList albums={props.data} username={props.username} />
 
 AlbumPage.propTypes = {
-  albumTitle: PropTypes.string
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      albumTitle: PropTypes.string,
+      imageUrl: PropTypes.string
+    })),
+  username: PropTypes.string
 }
 
-export default AlbumPage
+export default withPageTemplate(AlbumPage, 'albums', 'Album Title', generateAlbumData)
