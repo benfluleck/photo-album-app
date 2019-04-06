@@ -22,10 +22,10 @@ export const generateAlbumData = (albums = [], users = []) => {
   let username = ''
   const data = []
 
-  albums.map(({ userId, title }) => {
+  albums.map(({ id, userId, title }) => {
     return users.forEach(user => {
       if (user.id === userId) {
-        data.push({ title, imageUrl: generateRandomUrls() })
+        data.push({ id, title, imageUrl: generateRandomUrls() })
         username = user.username
       }
     })
@@ -36,3 +36,5 @@ export const generateAlbumData = (albums = [], users = []) => {
     username
   }
 }
+
+export const generatePhotosData = (photos = [], id = '') => photos.filter(photo => photo.albumId === Number(id))

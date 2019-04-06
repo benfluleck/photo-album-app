@@ -1,6 +1,8 @@
 import axios from 'axios'
+import { BASE_API_URL } from '<constants>/constants'
 
-export default {
-  getAllAlbums: () => axios.get('https://jsonplaceholder.typicode.com/albums?_start=0&_limit=5'),
-  getAllUsers: () => axios.get('https://jsonplaceholder.typicode.com/users')
-}
+const api = axios.create({
+  baseURL: BASE_API_URL
+})
+
+export default api

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import PropTypes from 'prop-types'
 
 import OptionSelect from '<molecules>/OptionSelect/OptionSelect'
 import PageTemplate from '<templates>/PageTemplate'
@@ -8,13 +9,15 @@ import useDataFromApi from '<state>/hooks/useDataFromApi'
 import usePagination from '<state>/hooks/usePagination'
 import { getUsers } from '<helpers>/utils'
 
-function withPageTemplate (Component, pageRoute, pageTitle, fn = () => {}) {
-  return function AlbumPage () {
+function withPageTemplate (Component, path, pageTitle, fn = () => { }) {
+  function CurrentPage (props) {
+    const albumId = props.match.params.albumId || ''
     const allUsers = useContext(UsersContext)
     const users = getUsers(allUsers)
 
     const startPostion = 0
     const initLimit = 10
+    const filterValue = albumId || ''
     const urlParams = new URLSearchParams(window.location.search)
     const currentPage = Number(urlParams.get('page')) || 1
 
@@ -26,16 +29,23 @@ function withPageTemplate (Component, pageRoute, pageTitle, fn = () => {}) {
     } = usePagination(startPostion, initLimit)
 
     const { data } = useDataFromApi(
-      pageRoute, {
+      path, {
         _start: start,
-        _limit: limit
+        _limit: limit,
+        albumId: filterValue
       }
     )
 
-    const results = fn(data, users)
+    let photoResults, albumResults
+    if (albumId) {
+      photoResults = fn(data, albumId)
+    } else {
+      albumResults = fn(data, users)
+    }
+
     return (
       <PageTemplate pageTitle={pageTitle}>
-        <Component {...results}/>
+        <Component {...albumResults} photoResults={photoResults} history={props.history} />
         <OptionSelect
           handleOnChange={handleOnChangeLimit} initLimit={initLimit} />
         <Pagination
@@ -52,7 +62,7 @@ function withPageTemplate (Component, pageRoute, pageTitle, fn = () => {}) {
     }
 
     function pushStatePage (page) {
-      window.history.pushState(null, null, `?page=${page}`)
+      props.history.push(`/?page=${page}`)
     }
 
     function handleOnChangeLimit (e) {
@@ -61,6 +71,13 @@ function withPageTemplate (Component, pageRoute, pageTitle, fn = () => {}) {
       pushStatePage(1)
     }
   }
+
+  CurrentPage.propTypes = {
+    history: PropTypes.object,
+    match: PropTypes.object
+  }
+
+  return CurrentPage
 }
 
 export default withPageTemplate
