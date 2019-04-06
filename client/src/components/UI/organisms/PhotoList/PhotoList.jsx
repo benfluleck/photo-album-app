@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import Photo from '<molecules>/Photo/Photo'
 
-function PhotoList ({ photos }) {
+function PhotoList ({ photos = [] }) {
   return (
     <PhotoList.Container>
       {renderPhotos(photos)}
@@ -14,7 +14,7 @@ function PhotoList ({ photos }) {
   function renderPhotos (photos) {
     return photos.map((photo, index) =>
       (<Photo
-        key={`${index}+${photo.id}`}
+        key={`${index}`}
         imageUrl={photo.url}
         imageTitle={photo.title}
       />))

@@ -12,9 +12,10 @@ function Card ({
   cardTitle,
   cardTitleValue,
   itemTitle,
-  itemValue
+  itemValue,
+  onClick
 }) {
-  return (<Card.Container>
+  return (<Card.Container onClick={onClick}>
     <Image imageUrl={imageUrl} altText={imageTitle}></Image>
     <Card.Content>
       <CardTitle cardTitle={cardTitle} titleValue={cardTitleValue} />
@@ -54,7 +55,8 @@ Card.propTypes = {
   cardTitle: PropTypes.string.isRequired,
   cardTitleValue: PropTypes.string,
   itemTitle: PropTypes.string,
-  itemValue: PropTypes.string
+  itemValue: PropTypes.string,
+  onClick: PropTypes.func
 }
 
 export default Card

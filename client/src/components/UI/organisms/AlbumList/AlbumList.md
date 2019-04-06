@@ -1,6 +1,8 @@
 AlbumList example:
 ```jsx
   <AlbumList
+    onClick={() => {alert('How\'s it going')}}
+    username="Benny Ogidan"
     albums={[
         {
           id: '1',
