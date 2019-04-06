@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
-import axios from 'axios'
 
-import { BASE_API_URL } from '<constants>/constants'
+import api from '<api>/api'
 
 const useDataFromApi = (path, params) => {
   const [data, setData] = useState([])
@@ -12,9 +11,10 @@ const useDataFromApi = (path, params) => {
       const request = async () => {
         // setLoading(true)
         try {
-          const response = await axios.get(`${BASE_API_URL}/${path}`, {
+          const response = await api.get(`/${path}`, {
             params
           })
+
           setData(response.data)
         } catch (err) {
           setError(err.message)

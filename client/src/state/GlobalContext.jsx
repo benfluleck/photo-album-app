@@ -10,7 +10,7 @@ const GlobalContext = (props) => {
   useEffect(
     () => {
       api
-        .getAllUsers()
+        .get('/users')
         .then(response => getUsers(response.data))
         .catch(err => console.log(err))
     },

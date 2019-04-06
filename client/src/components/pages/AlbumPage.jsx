@@ -5,7 +5,14 @@ import withPageTemplate from '../hoc/withPageTemplate'
 import AlbumList from '<organisms>/AlbumList/AlbumList'
 import { generateAlbumData } from '<helpers>/utils'
 
-const AlbumPage = props => <AlbumList albums={props.data} username={props.username} />
+function AlbumPage (props) {
+  return <AlbumList albums={props.data}
+    username={props.username} onClick={handleClick} />
+
+  function handleClick (id) {
+    props.history.push(`/${id}/photos`)
+  }
+}
 
 AlbumPage.propTypes = {
   data: PropTypes.arrayOf(
@@ -13,7 +20,8 @@ AlbumPage.propTypes = {
       albumTitle: PropTypes.string,
       imageUrl: PropTypes.string
     })),
-  username: PropTypes.string
+  username: PropTypes.string,
+  history: PropTypes.func
 }
 
-export default withPageTemplate(AlbumPage, 'albums', 'Album Title', generateAlbumData)
+export default withPageTemplate(AlbumPage, 'albums', 'Album Page', generateAlbumData)
