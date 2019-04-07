@@ -6,11 +6,16 @@ import AlbumList from '<organisms>/AlbumList/AlbumList'
 import { generateAlbumData } from '<helpers>/utils'
 
 function AlbumPage (props) {
-  return <AlbumList albums={props.data}
-    username={props.username} onClick={handleClick} />
 
-  function handleClick (id) {
-    props.history.push(`/${id}/photos`)
+  const { username, data, history } = props
+  return <AlbumList albums={data}
+    username={username} onClick={handleClick} />
+
+  function handleClick (id, title) {
+    history.push(`/${id}/photos`, {
+      username,
+      title
+    })
   }
 }
 
@@ -21,7 +26,7 @@ AlbumPage.propTypes = {
       imageUrl: PropTypes.string
     })),
   username: PropTypes.string,
-  history: PropTypes.func
+  history: PropTypes.object
 }
 
 export default withPageTemplate(AlbumPage, 'albums', 'Album Page', generateAlbumData)
