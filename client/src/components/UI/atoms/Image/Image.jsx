@@ -12,7 +12,7 @@ Image.Container = styled.img`
   `
 
 Image.propTypes = {
-  imageUrl: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string,
   altTitle: PropTypes.string,
   width: PropTypes.oneOf(Object.keys(spacing))
 }

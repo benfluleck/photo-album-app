@@ -4,17 +4,18 @@ import styled from 'styled-components'
 
 import Photo from '<molecules>/Photo/Photo'
 
-function PhotoList ({ photos = [] }) {
+function PhotoList ({ photos = [], onClick }) {
   return (
     <PhotoList.Container>
-      {renderPhotos(photos)}
+      {renderPhotos(photos, onClick)}
     </PhotoList.Container>
   )
 
-  function renderPhotos (photos) {
+  function renderPhotos (photos, onClick) {
     return photos.map((photo, index) =>
       (<Photo
-        key={`${index}`}
+        onClick={() => onClick(photo.url)}
+        key={`${index}+${photo.title}`}
         imageUrl={photo.url}
         imageTitle={photo.title}
       />))
@@ -27,7 +28,8 @@ PhotoList.propTypes = {
       title: PropTypes.string,
       url: PropTypes.string
     })
-  )
+  ),
+  onClick: PropTypes.func
 }
 
 PhotoList.Container = styled.div`
