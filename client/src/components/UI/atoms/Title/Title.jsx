@@ -28,7 +28,7 @@ Title.defaultProps = {
 }
 
 Title.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   fontSize: PropTypes.oneOf(Object.keys(fontSize))
 }
 
