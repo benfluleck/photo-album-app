@@ -3,7 +3,7 @@ import React, { Fragment, useState } from 'react'
 
 import PropTypes from 'prop-types'
 
-import withPageTemplate from '../hoc/withPageTemplate'
+import withPageTemplate from '../HOC/withPageTemplate'
 import PhotoList from '<organisms>/PhotoList/PhotoList'
 import { generatePhotosData } from '<helpers>/utils'
 import SectionHeader from '<molecules>/SectionHeader/SectionHeader'
