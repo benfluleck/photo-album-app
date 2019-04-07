@@ -8,11 +8,11 @@ const SectionHeader = ({ header, title }) => (
   <Fragment>
     <SectionHeader.Container>
       <Title fontSize="md">
-        Name: {header}
+        Owner: {header}
       </Title>
     </SectionHeader.Container>
     <Title fontSize="base">
-      Title: {title}
+      Album Title: {title}
     </Title>
   </Fragment>
 )

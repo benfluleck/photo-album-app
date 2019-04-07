@@ -8,14 +8,17 @@ import Title from '<atoms>/Title/Title'
 
 import { spacing } from '<styles>/variables/spacing'
 
-const Photo = ({ imageUrl, imageTitle, width }) => (
-  <Photo.Container width={width}>
+const Photo = ({ imageUrl, imageTitle, width, onClick }) => (
+  <Photo.Container onClick={onClick} width={width}>
     <Photo.Image>
       <Image imageUrl={imageUrl} altTitle={imageTitle} />
     </Photo.Image>
     <Photo.Text className="card__text">
       <Title fontSize="base">Photo Title</Title>
-      <Text fontSize="base" display="inline-block" textAlign="center" color="white">{imageTitle}</Text>
+      <Text fontSize="base"
+        display="inline-block"
+        textAlign="center"
+        color="white">{imageTitle}</Text>
     </Photo.Text>
   </Photo.Container>
 )
@@ -36,14 +39,14 @@ Photo.Container = styled.div`
   }
 
   &:before {
-    transform: scale(0,1); 
+    transform: scale(0,1);
     transition: transform ease-out 0.25s;
     border-top: ${spacing.xxxs} solid ${textColors.white};
     border-bottom: ${spacing.xxxs} solid ${textColors.white};
   }
 
   &:after {
-    transform: scale(1,0); 
+    transform: scale(1,0);
     transition: transform ease-out 0.25s;
     border-right: ${spacing.xxxs} solid ${textColors.white};
     border-left: ${spacing.xxxs} solid ${textColors.white};
@@ -90,7 +93,8 @@ Photo.Text = styled.div`
 Photo.propTypes = {
   imageUrl: PropTypes.string,
   imageTitle: PropTypes.string,
-  width: PropTypes.oneOf(Object.keys(spacing))
+  width: PropTypes.oneOf(Object.keys(spacing)),
+  onClick: PropTypes.func
 }
 
 export default Photo

@@ -46,7 +46,7 @@ function withPageTemplate (Component, path, pageTitle, fn = () => { }) {
     return (
       <PageTemplate pageTitle={pageTitle}>
         <Component {...albumResults}
-          photoResults={photoResults} 
+          photoResults={photoResults}
           {...props} />
         <OptionSelect
           handleOnChange={handleOnChangeLimit} initLimit={initLimit} />
