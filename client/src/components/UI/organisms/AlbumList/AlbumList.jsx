@@ -20,7 +20,7 @@ function AlbumList ({ albums, username, onClick }) {
       cardTitleValue={album.title}
       itemTitle="Username"
       itemValue={username}
-      onClick={() => onClick(album.id)}
+      onClick={() => onClick(album.id, album.title)}
     />))
   }
 }
