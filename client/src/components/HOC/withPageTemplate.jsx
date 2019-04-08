@@ -8,6 +8,7 @@ import { UsersContext } from '<state>/GlobalContext'
 import useDataFromApi from '<state>/hooks/useDataFromApi'
 import usePagination from '<state>/hooks/usePagination'
 import { getUsers } from '<helpers>/utils'
+import ReactLoading from 'react-loading'
 
 function withPageTemplate (Component, path, pageTitle, fn = () => { }) {
   function CurrentPage (props) {
@@ -28,7 +29,7 @@ function withPageTemplate (Component, path, pageTitle, fn = () => { }) {
       setLimit
     } = usePagination(startPostion, initLimit)
 
-    const { data } = useDataFromApi(
+    const { data, loading, error } = useDataFromApi(
       path, {
         _start: start,
         _limit: limit,
@@ -43,11 +44,21 @@ function withPageTemplate (Component, path, pageTitle, fn = () => { }) {
       albumResults = fn(data, users)
     }
 
+    let pageContent
+    if (error) {
+      pageContent = <h2>{error.toString()}</h2>
+    } else if (loading) {
+      pageContent = <ReactLoading type='spinningBubbles' color="#b19cd9" height={667} width={375}/>
+    } else if (!loading && data) {
+      pageContent =
+      (<Component {...albumResults}
+        photoResults={photoResults}
+        {...props} />)
+    }
+
     return (
       <PageTemplate pageTitle={pageTitle}>
-        <Component {...albumResults}
-          photoResults={photoResults} 
-          {...props} />
+        {pageContent}
         <OptionSelect
           handleOnChange={handleOnChangeLimit} initLimit={initLimit} />
         <Pagination

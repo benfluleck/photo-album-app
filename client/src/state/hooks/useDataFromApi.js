@@ -4,12 +4,12 @@ import api from '<api>/api'
 
 const useDataFromApi = (path, params) => {
   const [data, setData] = useState([])
-  //   const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState()
   useEffect(
     () => {
       const request = async () => {
-        // setLoading(true)
+        setLoading(true)
         try {
           const response = await api.get(`/${path}`, {
             params
@@ -20,7 +20,7 @@ const useDataFromApi = (path, params) => {
           setError(err.message)
         }
 
-        // setLoading(false)
+        setLoading(false)
       }
 
       request()
@@ -30,6 +30,7 @@ const useDataFromApi = (path, params) => {
 
   return {
     data,
+    loading,
     error
   }
 }
