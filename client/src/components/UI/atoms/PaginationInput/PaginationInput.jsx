@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const PaginationInput = ({ onChange, value }) => (
-  <PaginationInput.Container type="number" onChange={onChange} value={value} />
+  <PaginationInput.Container type="number" onChange={onChange} value={value} readOnly />
 )
 
 PaginationInput.Container = styled.input`

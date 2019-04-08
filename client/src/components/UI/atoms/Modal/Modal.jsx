@@ -23,7 +23,7 @@ class Modal extends React.Component {
 Modal.propTypes = {
   handleClose: PropTypes.func.isRequired,
   children: PropTypes.node,
-  open: PropTypes,
+  open: PropTypes.bool,
   username: PropTypes.string,
   title: PropTypes.string
 }
