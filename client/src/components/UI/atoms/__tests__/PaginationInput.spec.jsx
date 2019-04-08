@@ -48,7 +48,7 @@ describe('Component- PaginationInput  ', () => {
       const onChange = jest.fn()
       const { wrapper } = setup({ onChange })
 
-      expect(wrapper.simulate('change', { target: { value: '222' } }))
+      wrapper.simulate('change', { target: { value: '222' } })
       expect(onChange).toHaveBeenCalled()
     })
   })
