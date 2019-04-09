@@ -16,6 +16,9 @@ function withPageTemplate (Component, path, pageTitle, fn = () => { }) {
     const allUsers = useContext(UsersContext)
     const users = getUsers(allUsers)
 
+    const username = props.location.state ? props.location.state.username : ''
+    const title = props.location.state ? props.location.state.title : ''
+
     const startPostion = 0
     const initLimit = 10
     const filterValue = albumId || ''
@@ -75,7 +78,11 @@ function withPageTemplate (Component, path, pageTitle, fn = () => { }) {
     }
 
     function pushStatePage (page) {
-      props.history.push(`/?page=${page}`)
+      console.log(props.match.url)
+      props.history.push(props.match.url + `?page=${page}`, {
+        username,
+        title
+      })
     }
 
     function handleOnChangeLimit (e) {
@@ -87,7 +94,8 @@ function withPageTemplate (Component, path, pageTitle, fn = () => { }) {
 
   CurrentPage.propTypes = {
     history: PropTypes.object,
-    match: PropTypes.object
+    match: PropTypes.object,
+    location: PropTypes.object
   }
 
   return CurrentPage
