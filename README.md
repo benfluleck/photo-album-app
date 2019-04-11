@@ -1,4 +1,7 @@
 # Photo-App
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/benfluleck/photo-album-app.svg)](https://greenkeeper.io/)
+
 This is a frontEnd application that allows inidivduals to view albums and photos
 
 <img width="1440" alt="Client Side" src="./screenshots/image.png">
